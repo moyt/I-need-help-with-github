@@ -36,15 +36,15 @@ function getRandomIndex() {
 
 
 function printQuote() {                                                                     //this script actually has a lot going on
-    
    
-    var tmpArray = [];
-    var quoteIndex;
+    var tmpArray = [];                                                                      //create an empty array
+    var quoteIndex;                                                                         //store the index quote
     
     
-    quoteIndex = getRandomIndex();
     
-
+    quoteIndex = getRandomIndex();                                                          //just immediatly roll a fucking number
+    console.log(quoteIndex);                                                               //test the quoteIndex in console.
+    
     
     
     
