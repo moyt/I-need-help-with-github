@@ -29,21 +29,31 @@ var quotes = [
 
 //first off i want to create an empty array
 var tmpArray = [];
-//then i want to populate the array with however many quotes there are in my quote array. so i need a loop.
-for (var i = 0; i < quotes.length; i++) {
-    tmpArray.push(i);
+
+//create a function that populates my tmpArray with however many quotes there are in quotes[];
+function populateAndRandomize() {
+
+    //so i need a loop.
+    for (var i = 0; i < quotes.length; i++) {
+        tmpArray.push(i);
+    }
+    //and shuffle my array by calling shuffleArray from snippets.js (i'm sure i could just move over the code but for now it's not a huge concern)
+    shuffleArray(tmpArray);
 }
 
+populateAndRandomize();
 
 function printQuote() {
+
+    //as soon as the the button is pushed..i want to test out if there is actually items in my tmpArray.  if there is then sweet! go through the motions of printing stuff.  if not repopulate my tmpArray.
+
+
+    if (!tmpArray.length > 0) {
+        populateAndRandomize();
+        //i want to just grab the last item in my quotes array, save it in a temp variable, 
+    }
     
-    
-    
-    
-    //i want to just grab the last item in my quotes array, save it in a temp variable, 
     var poppedQuoteIndex = tmpArray.pop();
-    
-    
     //and print it
     var quoteBox = document.getElementById("quote-box");
     quoteBox.innerHTML = quotes[poppedQuoteIndex].quote + " " + quotes[poppedQuoteIndex].source;
