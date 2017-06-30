@@ -43,8 +43,7 @@ function populateAndRandomize() {
 }
 
 
-//this is the stuff that's gunna happen when that button gets pushed
-function printQuote() {
+function getRandomQuote() {
 
     //first just check to see if theres any thing in my tmpArray.  if not then populate it by calling my populateAndRandomize() function.
     if (tmpArray.length <= 0) {
@@ -79,6 +78,16 @@ function printQuote() {
     //by now the array is populated, randomized, and checked for doubles.  grab the last item of my array, store it in a variable, and then get rid of item from array.  
     
     poppedQuoteIndex = tmpArray.pop();
+    return poppedQuoteIndex;
+}
+
+
+//this is the stuff that's gunna happen when that button gets pushed
+function printQuote() {
+    
+    
+    var tmpfornow = getRandomQuote();
+
 
 
 
@@ -90,7 +99,7 @@ function printQuote() {
     console.log(poppedQuoteIndex);
     console.log(tmpArray);
     //console.log("this many items left in my array " + tmpArray.length);
-    quoteBox.innerHTML = quotes[poppedQuoteIndex].quote + " " + quotes[poppedQuoteIndex].source;
+    quoteBox.innerHTML = quotes[tmpfornow].quote + " " + quotes[tmpfornow].source;
 }
 
 
