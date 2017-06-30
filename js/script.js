@@ -86,7 +86,7 @@ function getRandomQuote() {
 function printQuote() {
     
     
-    var tmpfornow = getRandomQuote();
+    var grabRandomQuote = getRandomQuote();
 
 
 
@@ -99,7 +99,7 @@ function printQuote() {
     console.log(poppedQuoteIndex);
     console.log(tmpArray);
     //console.log("this many items left in my array " + tmpArray.length);
-    quoteBox.innerHTML = quotes[tmpfornow].quote + " " + quotes[tmpfornow].source;
+    quoteBox.innerHTML = quotes[grabRandomQuote].quote + " " + quotes[grabRandomQuote].source;
 }
 
 
