@@ -30,5 +30,3 @@ function shuffleArray(array) {
 // Used like so
 
 shuffleArray(myCoolArray);
-console.log(myCoolArray);
-console.log("can you hear me");

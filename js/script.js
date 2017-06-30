@@ -27,46 +27,69 @@ var quotes = [
 
 
 
-//first off i want to create an empty array
+//first off i want to create an empty array and create var poppedQuoteIndex which will be used later.
 var tmpArray = [];
 var poppedQuoteIndex;
 
-//create a function that populates my tmpArray with however many quotes there are in quotes[];
+//create a function that populates my tmpArray with however many quotes there are in quotes[] and also randomized the array;
 function populateAndRandomize() {
 
-    //so i need a loop.
+    //so i need a loop to iterate and add to my empty array.  pretty easy stuff.
     for (var i = 0; i < quotes.length; i++) {
         tmpArray.push(i);
     }
-    //and shuffle my array by calling shuffleArray from snippets.js (i'm sure i could just move over the code but for now it's not a huge concern)
+    //and shuffle my array by calling shuffleArray from snippets.js (i'm sure i could just move over the code here but for now it's not a huge concern)
     shuffleArray(tmpArray);
 }
 
+
+//this is the stuff that's gunna happen when that button gets pushed
 function printQuote() {
 
+    //first just check to see if theres any thing in my tmpArray.  if not then populate it by calling my populateAndRandomize() function.
     if (tmpArray.length <= 0) {
         populateAndRandomize();
         console.log("shuffled");
-        console.log("last popped is " + poppedQuoteIndex + " and last item in array is " + tmpArray[tmpArray.length - 1]);
-        
-        if (poppedQuoteIndex == tmpArray[tmpArray.length -1]){
+        //console.log("last popped is " + poppedQuoteIndex + " and last item in array is " + tmpArray[tmpArray.length - 1]);
+
+        //this checks to see the laast used array index from poppedQuoteIndex is the same as the last item in my array.  This is for making sure quotes dont repeat themselves.  
+        if (poppedQuoteIndex == tmpArray[tmpArray.length - 1]) {
             console.log("DOUBLE");
-            alert("DOUBLE");
+            
+            var tmpFirstItem;
+            var tmpLastItem;
+            
+            //grab first item
+            tmpFirstItem = tmpArray.shift();
+            //grab last item
+            tmpLastItem = tmpArray.pop();
+            
+            console.log(tmpFirstItem + " " + tmpLastItem)
+            
+            //push first item to the end of the line
+            tmpArray.push(tmpFirstItem);
+            
+            //bring last item to the begining of the line
+            tmpArray.unshift(tmpLastItem);
         }
     }
 
 
 
-
+    //by now the array is populated, randomized, and checked for doubles.  grab the last item of my array, store it in a variable, and then get rid of item from array.  
+    
     poppedQuoteIndex = tmpArray.pop();
 
 
 
-    //and print it
-
+    //associate last item with quote index and print it
+    
+    
+    
     var quoteBox = document.getElementById("quote-box");
     console.log(poppedQuoteIndex);
-    console.log("this many items left in my array " + tmpArray.length);
+    console.log(tmpArray);
+    //console.log("this many items left in my array " + tmpArray.length);
     quoteBox.innerHTML = quotes[poppedQuoteIndex].quote + " " + quotes[poppedQuoteIndex].source;
 }
 
