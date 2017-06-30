@@ -29,6 +29,7 @@ var quotes = [
 
 //first off i want to create an empty array
 var tmpArray = [];
+var poppedQuoteIndex;
 
 //create a function that populates my tmpArray with however many quotes there are in quotes[];
 function populateAndRandomize() {
@@ -41,46 +42,33 @@ function populateAndRandomize() {
     shuffleArray(tmpArray);
 }
 
-populateAndRandomize();
-
 function printQuote() {
 
-    //as soon as the the button is pushed..i want to test out if there is actually items in my tmpArray.  if there is then sweet! go through the motions of printing stuff.  if not repopulate my tmpArray.
-
-
-    if (!tmpArray.length > 0) {
+    if (tmpArray.length <= 0) {
         populateAndRandomize();
-        //i want to just grab the last item in my quotes array, save it in a temp variable, 
+        console.log("shuffled");
+        console.log("last popped is " + poppedQuoteIndex + " and last item in array is " + tmpArray[tmpArray.length - 1]);
+        
+        if (poppedQuoteIndex == tmpArray[tmpArray.length -1]){
+            console.log("DOUBLE");
+            alert("DOUBLE");
+        }
     }
-    
-    var poppedQuoteIndex = tmpArray.pop();
+
+
+
+
+    poppedQuoteIndex = tmpArray.pop();
+
+
+
     //and print it
+
     var quoteBox = document.getElementById("quote-box");
+    console.log(poppedQuoteIndex);
+    console.log("this many items left in my array " + tmpArray.length);
     quoteBox.innerHTML = quotes[poppedQuoteIndex].quote + " " + quotes[poppedQuoteIndex].source;
 }
-
-
-
-
-
-/* OLD CODE!
-
-
-function getRandomIndex() {
-    var randomQuote = Math.floor(Math.random() * quotes.length);
-    return randomQuote;
-}
-function printQuote() { //this script actually has a lot going on
-
-    var quoteIndex; //store the index quote
-
-    var quoteBox = document.getElementById("quote-box");
-    quoteBox.innerHTML = quotes[quoteIndex].quote + " " + quotes[quoteIndex].source;
-    
-} //end printQuote()
-printQuote();
-
-*/
 
 
 
