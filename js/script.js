@@ -44,11 +44,13 @@ function populateAndRandomize() {
 
 
 function getRandomQuote() {
+    console.log("shuffled");
 
     //first just check to see if theres any thing in my tmpArray.  if not then populate it by calling my populateAndRandomize() function.
     if (tmpArray.length <= 0) {
+        
         populateAndRandomize();
-        console.log("shuffled");
+        
         //console.log("last popped is " + poppedQuoteIndex + " and last item in array is " + tmpArray[tmpArray.length - 1]);
 
         //this checks to see the laast used array index from poppedQuoteIndex is the same as the last item in my array.  This is for making sure quotes dont repeat themselves.  
@@ -82,9 +84,13 @@ function getRandomQuote() {
 }
 
 
+var myVar;
+
 //this is the stuff that's gunna happen when that button gets pushed
 function printQuote() {
     
+    clearInterval(intervalID);
+    clearTimeout(myVar);
     
     var grabRandomQuote = getRandomQuote();
 
@@ -94,17 +100,26 @@ function printQuote() {
     //associate last item with quote index and print it
     
     
+
+    var quoteClass = document.getElementsByClassName("quote")[0];
+    var sourceClass = document.getElementsByClassName("source")[0];
     
-    var quoteBox = document.getElementById("quote-box");
     console.log(poppedQuoteIndex);
     console.log(tmpArray);
     //console.log("this many items left in my array " + tmpArray.length);
-    quoteBox.innerHTML = quotes[grabRandomQuote].quote + " " + quotes[grabRandomQuote].source;
+    
+    
+    quoteClass.innerHTML = quotes[grabRandomQuote].quote;
+    sourceClass.innerHTML = quotes[grabRandomQuote].source;
+    
+    
+    myVar = setTimeout(printQuote, 2000);
+    
+
 }
 
 
-
-
+var intervalID = window.setInterval(printQuote, 2000);
 
 
 
