@@ -21,8 +21,7 @@ body {
     position: relative;
     margin: 0;
     padding: 20px;
-    background-color: black;
-    color: #36b55c;
+    color: white;
 }
 
 .quote:before,
@@ -36,12 +35,11 @@ body {
     content: "“";
     top: .25em;
     left: -.5em;
-    background-color: black;
     padding: 10px
 }
 
 .quote:after {
-    background-color: black;
+    
     content: "”";
     bottom: -.1em;
     margin-left: .1em;
@@ -85,7 +83,7 @@ body {
     border-radius: 4px;
     border: 2px solid #fff;
     color: #fff;
-    background-color: #36b55c;
+    background-color: rgba(255, 255, 255, 0);
     padding: 15px 0;
     transition: .5s;
 }

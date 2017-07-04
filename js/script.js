@@ -44,14 +44,14 @@ function populateAndRandomize() {
 
 
 function getRandomQuote() {
-    console.log("shuffled");
+    
 
+    
     //first just check to see if theres any thing in my tmpArray.  if not then populate it by calling my populateAndRandomize() function.
     if (tmpArray.length <= 0) {
         
+            console.log("shuffled");
         populateAndRandomize();
-        
-        //console.log("last popped is " + poppedQuoteIndex + " and last item in array is " + tmpArray[tmpArray.length - 1]);
 
         //this checks to see the laast used array index from poppedQuoteIndex is the same as the last item in my array.  This is for making sure quotes dont repeat themselves.  
         if (poppedQuoteIndex == tmpArray[tmpArray.length - 1]) {
@@ -84,11 +84,30 @@ function getRandomQuote() {
 }
 
 
+//Background color Section =================================================
+//==========================================================================
+
+
+
+//funciton to spit out a "random" color in HSL
+
+function randomBackgroundColor() {
+    var randomH = Math.floor(Math.random() * 360) + 1;
+    var pageBackgroundColor = document.querySelector("body");
+    pageBackgroundColor.style.backgroundColor = "hsl(" + randomH + ", 60%, 30%)";
+}
+
+
+
+
+
 var myVar;
 
 //this is the stuff that's gunna happen when that button gets pushed
 function printQuote() {
     
+    
+    randomBackgroundColor();
     clearInterval(intervalID);
     clearTimeout(myVar);
     
