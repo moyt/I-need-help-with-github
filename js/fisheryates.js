@@ -2,6 +2,7 @@
 //thanks Youtube User Adam Khoury and this stackoverflow page https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
 
 
+
 function shuffleArray(array) {
 
     //make my variables for my function
