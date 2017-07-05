@@ -14,6 +14,10 @@ body {
     line-height: .5;
 }
 
+.quote-context {
+    display: inline-block;
+}
+
 .quote {
     font-size: 4rem;
     font-weight: 400;
@@ -47,12 +51,16 @@ body {
 }
 
 .source {
+    display: inline;
     font-size: 1.25rem;
-    ;
     letter-spacing: 0.05em;
     line-height: 1.1;
     text-align: right;
     margin-right: 4em;
+}
+
+.artist {
+    font-size: 1.25rem;
 }
 
 .source:before {
@@ -86,6 +94,7 @@ body {
     background-color: rgba(255, 255, 255, 0);
     padding: 15px 0;
     transition: .5s;
+    z-index: 1;
 }
 
 #loadQuote:hover {
